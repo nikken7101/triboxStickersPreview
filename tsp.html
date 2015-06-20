@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="tsp.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>tribox Stickers Preview</title>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand">tribox Stickers Preview</a>
+        </div>
+    </div>
+</nav>
+<div class="container" style="max-width: 800px">
+    <div class="row">
+        <div class="col-md-8 col-sm-8" id="g-cube-container">
+            <g-cube>
+                <g-scramble>M2 E2 S2</g-scramble>
+                <g-florian>0.2em</g-florian>
+            </g-cube>
+        </div>
+        <div class="col-md-4 col-sm-4">
+            <div class="form-group">
+                <label for="stickerInput">Input color scheme in <a
+                        href="http://store.tribox.com/user_data/color-scheme.php">tribox format</a></label>
+                <textarea id="stickerInput" class="form-control" rows="6">
+U: 025
+D: 010
+L: 052
+F: 032
+R: 062
+B: 395</textarea>
+            </div>
+            <div class="form-group" style="text-align: center">
+                <input tyle="button" id="previewButton" class="btn btn-primary" value="Preview!">
+            </div>
+            <div id="invalid-notice-container">
+                <h4 id="invalid-notice" style="display:none"><span class="label label-danger">Invalid format!</span>
+                </h4>
+            </div>
+
+            <strong>Share this color scheme</strong><br>
+            <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-count="none"
+               data-hashtags="triboxStickersPreview">Share this colors</a>
+            <script>!function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                if (!d.getElementById(id)) {
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = p + '://platform.twitter.com/widgets.js';
+                    fjs.parentNode.insertBefore(js, fjs);
+                }
+            }(document, 'script', 'twitter-wjs');</script>
+
+        </div>
+    </div>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://molarmanful.github.io/gCube/gcube.js"></script>
+<script src="settings.js"></script>
+<script src="tsp.js"></script>
+
+</body>
+</html>
