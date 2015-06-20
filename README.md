@@ -1,1 +1,1 @@
-# triboStickersPreview
+# triboxStickersPreview
