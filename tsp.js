@@ -123,7 +123,7 @@ $(function () {
     $("#g-cube-container").css("height", $("#g-cube-container").width());
 
     var colors = getColorsFromUrl();
-    changeUrl(colors);
+    //changeUrl(colors);
     changeInputForm(colors);
     var isValid = validateColors(colors);
     toggleInvalidNotice(isValid);
