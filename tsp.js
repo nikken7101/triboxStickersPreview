@@ -54,6 +54,7 @@ function changeUrl(colors) {
         "R=" + colors["R"] + "&" +
         "B=" + colors["B"];
     history.pushState(null, null, query);
+
     $("#twitterShare").html('<a href="https://twitter.com/share" class="twitter-share-button" data-url="'+ location.href+'" data-size="large" data-count="none" data-hashtags="triboxStickersPreview">Tweet</a>');
     twttr.widgets.load()
 }
@@ -107,6 +108,7 @@ $(function () {
         var colors = parseInput();
         if (validateColors(colors)) {
             changeUrl(colors);
+            changeInputForm(colors);
             $('g-cube').fadeOut(150, function () {
                 applyColors(colors)
             });
