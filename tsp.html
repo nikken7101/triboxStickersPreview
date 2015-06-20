@@ -44,25 +44,28 @@ B: 395</textarea>
             </div>
 
             <strong>Share this color scheme</strong><br>
-            <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-count="none"
-               data-hashtags="triboxStickersPreview">Share this colors</a>
-            <script>!function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-                if (!d.getElementById(id)) {
-                    js = d.createElement(s);
-                    js.id = id;
-                    js.src = p + '://platform.twitter.com/widgets.js';
-                    fjs.parentNode.insertBefore(js, fjs);
-                }
-            }(document, 'script', 'twitter-wjs');</script>
 
+            <div id="twitterShare">
+                <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-count="none">Tweet</a>
+                <script>!function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                    if (!d.getElementById(id)) {
+                        js = d.createElement(s);
+                        js.id = id;
+                        js.src = p + '://platform.twitter.com/widgets.js';
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }
+                }(document, 'script', 'twitter-wjs');</script>
+            </div>
         </div>
     </div>
 </div>
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://molarmanful.github.io/gCube/gcube.js"></script>
 <script src="settings.js"></script>
 <script src="tsp.js"></script>
+
 
 </body>
 </html>

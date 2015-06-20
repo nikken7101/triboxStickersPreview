@@ -40,7 +40,6 @@ function parseInput() {
 function applyColors(colors) {
     for (var face in colors) {
         var color = colors[face];
-        console.log(face, color)
         var rgb = colorList[color]['rgb'];
         sticker[face].css("background-color", "rgb(" + rgb[0] + "," + rgb[1] + "," + rgb[2] + ") ");
     }
@@ -55,6 +54,8 @@ function changeUrl(colors) {
         "R=" + colors["R"] + "&" +
         "B=" + colors["B"];
     history.pushState(null, null, query);
+    $("#twitterShare").html('<a href="https://twitter.com/share" class="twitter-share-button" data-url="'+ location.href+'" data-size="large" data-count="none" data-hashtags="triboxStickersPreview">Tweet</a>');
+    twttr.widgets.load()
 }
 
 function validateColors(colors) {
@@ -122,6 +123,7 @@ $(function () {
     $("#g-cube-container").css("height", $("#g-cube-container").width());
 
     var colors = getColorsFromUrl();
+    changeUrl(colors);
     changeInputForm(colors);
     var isValid = validateColors(colors);
     toggleInvalidNotice(isValid);
@@ -131,7 +133,7 @@ $(function () {
 
     $("#stickerInput").keyup(function () {
         var colors = parseInput();
-        var isValid = validateColors(colors)
+        var isValid = validateColors(colors);
         toggleInvalidNotice(isValid);
     })
 
