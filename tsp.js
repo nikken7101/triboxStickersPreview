@@ -9,7 +9,7 @@ function getColorsFromUrl() {
         var face = hash[0];
         var color = hash[1];
         if (face == 'U' || face == 'D' || face == 'L' || face == 'F' || face == 'R' || face == 'B') {
-            colors[face] = color;
+            colors[face] = color.replace("%20", " ");
         }
     }
     if (Object.keys(colors).length === 0) {
