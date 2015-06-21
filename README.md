@@ -8,7 +8,7 @@ Access [http://ni-ken.net/tsp/tsp.html](http://ni-ken.net/tsp/tsp.html) and inpu
 
 ## Licence
 
-[MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
+[MIT](https://github.com/nikken7101/triboxStickersPreview/blob/master/LICENSE)
 
 ## Author
 
