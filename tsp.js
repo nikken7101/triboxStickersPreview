@@ -140,3 +140,22 @@ $(function () {
     })
 
 });
+
+// for iOS Safari
+$(window).load(function () {
+    if (sticker["U"].length == 0) {
+        sticker["U"] = $(".sticker.orange");
+        sticker["D"] = $(".sticker.red");
+        sticker["L"] = $(".sticker.green");
+        sticker["F"] = $(".sticker.white");
+        sticker["R"] = $(".sticker.blue");
+        sticker["B"] = $(".sticker.yellow");
+        var colors = getColorsFromUrl();
+        changeInputForm(colors);
+        var isValid = validateColors(colors);
+        toggleInvalidNotice(isValid);
+        if (isValid) {
+            applyColors(colors);
+        }
+    }
+});
