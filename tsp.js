@@ -55,7 +55,7 @@ function changeUrl(colors) {
         "B=" + colors["B"];
     history.pushState(null, null, query);
 
-    $("#twitterShare").html('<a href="https://twitter.com/share" class="twitter-share-button" data-url="'+ location.href+'" data-size="large" data-count="none" data-hashtags="triboxStickersPreview">Tweet</a>');
+    $("#twitterShare").html('<a href="https://twitter.com/share" class="twitter-share-button" data-url="' + location.href + '" data-size="large" data-count="none" data-hashtags="triboxStickersPreview">Tweet</a>');
     twttr.widgets.load()
 }
 
