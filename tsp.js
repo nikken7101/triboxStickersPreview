@@ -137,7 +137,18 @@ $(function () {
         var colors = parseInput();
         var isValid = validateColors(colors);
         toggleInvalidNotice(isValid);
-    })
+    });
+
+    $("#bodyColorSelect").change(function () {
+        var bodyColor = $(this).val();
+        console.log(bodyColor);
+
+        for (var i = 0, len = bodyColorList.length; i < len; i++) {
+            $("g-cube").removeClass(bodyColorList[i]);
+        }
+        $('g-cube').addClass(bodyColor);
+    });
+
 
 });
 
