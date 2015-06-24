@@ -43,9 +43,18 @@ function applyColors(colors) {
         var rgb = colorList[color]['rgb'];
         sticker[face].css("background-color", "rgb(" + rgb[0] + "," + rgb[1] + "," + rgb[2] + ") ");
         if (color.charAt(0) == 'T') {
-            sticker[face].css("filter", "alpha(opacity=60)");
-            sticker[face].css("-moz-opacity", "0.6");
-            sticker[face].css("opacity", "0.6");
+            // Transparent
+            if (color == 'T000') {
+                sticker[face].css("filter", "alpha(opacity=0)");
+                sticker[face].css("-moz-opacity", "0.0");
+                sticker[face].css("opacity", "0.0");
+            }
+            // Other transparent colors
+            else {
+                sticker[face].css("filter", "alpha(opacity=60)");
+                sticker[face].css("-moz-opacity", "0.6");
+                sticker[face].css("opacity", "0.6");
+            }
         }
     }
 }
