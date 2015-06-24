@@ -42,6 +42,11 @@ function applyColors(colors) {
         var color = colors[face];
         var rgb = colorList[color]['rgb'];
         sticker[face].css("background-color", "rgb(" + rgb[0] + "," + rgb[1] + "," + rgb[2] + ") ");
+        if (color.charAt(0) == 'T') {
+            sticker[face].css("filter", "alpha(opacity=60)");
+            sticker[face].css("-moz-opacity", "0.6");
+            sticker[face].css("opacity", "0.6");
+        }
     }
 }
 

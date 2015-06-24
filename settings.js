@@ -65,5 +65,16 @@ var colorList = {
     'F-Orange': {rgb: [255, 167, 0], name: 'F-Orange'},
     'F-Yellow': {rgb: [255, 255, 0], name: 'F-Yellow'},
     'F-Green': {rgb: [0, 255, 30], name: 'F-Green'},
-    'B-Blue': {rgb: [0, 106, 255], name: 'B-Blue'}
+    'B-Blue': {rgb: [0, 106, 255], name: 'B-Blue'},
+    'T000': {rgb: [255, 255, 255], name: 'Transparent'},
+    'T020': {rgb: [249, 134, 13], name: 'Transparent Golden Yellow'},
+    'T025': {rgb: [255, 253, 15], name: 'Transparent Brimstone Yellow'},
+    'T032': {rgb: [215, 0, 19], name: 'Transparent Light Red'},
+    'T040': {rgb: [87, 0, 137], name: 'Transparent Violet'},
+    'T052': {rgb: [8, 42, 241], name: 'Transparent Azure Blue'},
+    'T056': {rgb: [72, 174, 251], name: 'Transparent Ice Blue'},
+    'T063': {rgb: [126, 218, 62], name: 'Transparent Lime-Tree Green'},
+    'T068': {rgb: [22, 117, 33], name: 'Transparent Grass Green'},
+    'T074': {rgb: [155, 155, 155], name: 'Transparent Middle Grey'},
+    'T085': {rgb: [253, 188, 229], name: 'Transparent Pale Pink'}
 };
