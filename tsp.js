@@ -40,22 +40,8 @@ function parseInput() {
 function applyColors(colors) {
     for (var face in colors) {
         var color = colors[face];
-        var rgb = colorList[color]['rgb'];
-        sticker[face].css("background-color", "rgb(" + rgb[0] + "," + rgb[1] + "," + rgb[2] + ") ");
-        if (color.charAt(0) == 'T') {
-            // Transparent
-            if (color == 'T000') {
-                sticker[face].css("filter", "alpha(opacity=0)");
-                sticker[face].css("-moz-opacity", "0.0");
-                sticker[face].css("opacity", "0.0");
-            }
-            // Other transparent colors
-            else {
-                sticker[face].css("filter", "alpha(opacity=60)");
-                sticker[face].css("-moz-opacity", "0.6");
-                sticker[face].css("opacity", "0.6");
-            }
-        }
+        var rgba = colorList[color]['rgba'];
+        sticker[face].css("background-color", "rgba(" + rgba[0] + "," + rgba[1] + "," + rgba[2] + "," + rgba[3] + ") ");
     }
 }
 
