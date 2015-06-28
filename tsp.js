@@ -24,6 +24,22 @@ function getColorsFromUrl() {
     }
 }
 
+function getBodyColorFromUrl() {
+    var colors = {}, hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for (var i = 0; i < hashes.length; i++) {
+        hash = hashes[i].split('=');
+        if (hash[0] == 'bc') {
+            if (bodyColorList.indexOf(hash[1]) >= 0) {
+                return hash[1];
+            } else {
+                return "black";
+            }
+        }
+    }
+    return "black"
+}
+
 function parseInput() {
     var input = $.trim($("#stickerInput").val());
     var splitedInput = input.split("\n");
@@ -45,14 +61,15 @@ function applyColors(colors) {
     }
 }
 
-function changeUrl(colors) {
+function changeUrl(colors, bc) {
     var query = "?" +
         "U=" + colors["U"] + "&" +
         "D=" + colors["D"] + "&" +
         "L=" + colors["L"] + "&" +
         "F=" + colors["F"] + "&" +
         "R=" + colors["R"] + "&" +
-        "B=" + colors["B"];
+        "B=" + colors["B"] + "&" +
+        "bc=" + bc;
     history.pushState(null, null, query);
 
     $("#twitterShare").html('<a href="https://twitter.com/share" class="twitter-share-button" data-url="' + location.href + '" data-size="large" data-count="none" data-hashtags="triboxStickersPreview">Tweet</a>');
@@ -83,13 +100,14 @@ function validateColors(colors) {
     return true;
 }
 
-function changeInputForm(colors) {
+function changeInputForm(colors, bc) {
     var text = "";
     for (var i = 0; i < faceList.length; i++) {
         var face = faceList[i];
         text += face + ": " + colors[face] + "\n"
     }
     $("#stickerInput").val($.trim(text));
+    $("#bodyColorSelect").val(bc);
 }
 
 function toggleInvalidNotice(isValid) {
@@ -100,17 +118,25 @@ function toggleInvalidNotice(isValid) {
         $("#previewButton").prop("disabled", true);
         $("#invalid-notice").show();
     }
+}
 
+function applyBodyColor(bc) {
+    for (var i = 0, len = bodyColorList.length; i < len; i++) {
+        $("g-cube").removeClass(bodyColorList[i]);
+    }
+    $('g-cube').addClass(bc);
 }
 
 $(function () {
     $("#previewButton").click(function () {
         var colors = parseInput();
+        var bc = $("#bodyColorSelect").val();
         if (validateColors(colors)) {
-            changeUrl(colors);
-            changeInputForm(colors);
+            changeUrl(colors, bc);
+            changeInputForm(colors, bc);
             $('g-cube').fadeOut(150, function () {
-                applyColors(colors)
+                applyColors(colors);
+                applyBodyColor(bc);
             });
             $('g-cube').fadeIn(150);
         }
@@ -125,12 +151,13 @@ $(function () {
     $("#g-cube-container").css("height", $("#g-cube-container").width());
 
     var colors = getColorsFromUrl();
-    //changeUrl(colors);
-    changeInputForm(colors);
+    var bc = getBodyColorFromUrl();
+    changeInputForm(colors, bc);
     var isValid = validateColors(colors);
     toggleInvalidNotice(isValid);
     if (isValid) {
         applyColors(colors);
+        applyBodyColor(bc);
     }
 
     $("#stickerInput").keyup(function () {
@@ -138,17 +165,6 @@ $(function () {
         var isValid = validateColors(colors);
         toggleInvalidNotice(isValid);
     });
-
-    $("#bodyColorSelect").change(function () {
-        var bodyColor = $(this).val();
-        console.log(bodyColor);
-
-        for (var i = 0, len = bodyColorList.length; i < len; i++) {
-            $("g-cube").removeClass(bodyColorList[i]);
-        }
-        $('g-cube').addClass(bodyColor);
-    });
-
 
 });
 
@@ -162,11 +178,13 @@ $(window).load(function () {
         sticker["R"] = $(".sticker.blue");
         sticker["B"] = $(".sticker.yellow");
         var colors = getColorsFromUrl();
-        changeInputForm(colors);
+        var bc = getBodyColorFromUrl();
+        changeInputForm(colors, bc);
         var isValid = validateColors(colors);
         toggleInvalidNotice(isValid);
         if (isValid) {
             applyColors(colors);
+            applyBodyColor(bc);
         }
     }
 });
